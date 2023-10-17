@@ -23,9 +23,16 @@
         <div class="masthead">
             <div class="masthead-content text-white">
                 <div class="container-fluid px-4 px-lg-0">
-                    <h1 class="fst-italic lh-1 mb-4">Display for Judy &hearts; </h1>
                     <h1 class="fst-italic lh-1 mb-4">Unlock unparalleled career opportunities with our advanced system.</h1>
-                    <p class="mb-5">Start Your Job Hunting! Upload your resume now to unleash the full potential of your professional journey.</p>
+                    <p class="mb-5" id="text">Start Your Job Hunting! Upload your resume now to unleash the full potential of your professional journey.</p>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                        $(document).ready(function() {
+                            $("#submitButton").click(function() {
+                                $("#text").text("Results are coming!");
+                            });
+                        });
+                    </script>
                     <!-- * * * * * * * * * * * * * * *-->
                     <!-- * * SB Forms Contact Form * *-->
                     <!-- * * * * * * * * * * * * * * *-->
@@ -43,8 +50,25 @@
                                     </fieldset>
                                 </form>
                             </div>
-                            <div class="row"><button class="btn btn-primary disabled" id="submitButton" type="submit">Upload</button></div>
+                            <div class="row"><button class="btn btn-primary" id="submitButton" type="submit">Upload</button></div>
                         </div>
+                        <script>
+                            $(document).ready(function() {
+                                $("#contactForm").submit(function(e) {
+                                    e.preventDefault(); // Prevent the form from submitting
+                        
+                                    // Your code to handle the file upload and any further actions here
+                        
+                                    // Example: Display a message on successful upload
+                                    $("#submitSuccessMessage").removeClass("d-none");
+                                });
+                        
+                                $("#submitButton").click(function() {
+                                    // Handle the click event (e.g., file upload) here
+                                    // This code will execute when the "Upload" button is clicked
+                                });
+                            });
+                        </script>
                         <div class="invalid-feedback mt-2" data-sb-feedback="resumeInput:required">Please select a resume file.</div>
                         <div class="valid-feedback mt-2" data-sb-feedback="resumeInput:valid">File selected successfully!</div>
                         <!-- Submit success message-->
